@@ -17,6 +17,6 @@ export class HeadreComponent implements OnInit {
   onNewUser(){
     this.router.navigate(['new']);
   }
-
+//ng g component component-name --skip-import
  
 }

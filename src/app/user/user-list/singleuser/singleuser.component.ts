@@ -12,7 +12,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 export class SingleuserComponent implements OnInit {
 
    @Input() suser:User;
-   @Input() index: number;
+ //  @Input() index: number;
   // formArrayExam:FormGroup
   constructor(private router: Router,
     private route: ActivatedRoute,private userService:UserService) {console.log(this.suser) }

@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { SingleuserComponent } from './user/user-list/singleuser/singleuser.component';
 import { UserService } from './services/user.service';
+import { FilterUserDetailsPipe } from './Pipes/filter-user-details.pipe';
 import { UserFilter } from './Pipes/UserFilterPipe.pipe';
 
 
@@ -25,7 +26,7 @@ import { UserFilter } from './Pipes/UserFilterPipe.pipe';
     UserEditComponent,
     UserListComponent,
     SingleuserComponent,
-    UserFilter
+    FilterUserDetailsPipe,UserFilter
   ],
   imports: [
     BrowserModule,AppRouterModule,BrowserModule,

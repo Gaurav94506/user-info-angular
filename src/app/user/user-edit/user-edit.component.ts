@@ -42,7 +42,7 @@ export class UserEditComponent implements OnInit {
       'designation': new FormControl(null, Validators.required),
       'expertise': new FormControl(null, Validators.required),
       'adr': new FormGroup({
-        'state': new FormControl(null),
+        'state': new FormControl(null,Validators.required),
         'pincode': new FormControl(null, [Validators.required, Validators.minLength(6),Validators.pattern('^[1-9][0-9]{5}')])
       }),
       'gender': new FormControl('male'),
