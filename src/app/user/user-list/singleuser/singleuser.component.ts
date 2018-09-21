@@ -32,15 +32,16 @@ export class SingleuserComponent implements OnInit {
   }
 
   onAddHobby() {
-    const control = new FormControl(null);
+    const control = new FormGroup({
+        'name':new FormControl('test'),
+        'style':new FormControl('any style')
+    });
+    //FormControl(null);
     (<FormArray>this.formArrayExam.get('hobbies')).push(control);
 
 
 
-    // now i have made some changes here
-    // some changesi have made
-
-    // some changes made here some
+   
 
 //This functiona will delte user based on id
   }

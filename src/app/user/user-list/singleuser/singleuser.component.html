@@ -38,23 +38,19 @@
        
               <div class="radio" *ngFor="let gender of genders">
                 <label>
-                  <input
-                    type="radio"
-                    formControlName="gender"
-                    [value]="gender">{{ gender }}
+                  <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
                 </label>
               </div>
               <div formArrayName="hobbies">
                   <h4>Your Hobbies</h4>
-                  <button
-                          class="btn btn-default"
-                          type="button"
-                          (click)="onAddHobby()">Add Hobby
-                    </button>
-                  <div
-                      class="form-group"
-                      *ngFor="let hobbyControl of formArrayExam.get('hobbies').controls; let i = index">
-                      <input type="text" class="form-control" [formControlName]="i">
+                  <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby </button>
+                  <div class="form-group" *ngFor="let hobbyControl of formArrayExam.get('hobbies').controls; let i = index" [formGroupName]="i">
+                    <div class="col-xs-9"> 
+                          <input type="text" class="form-control" formControlName="name">
+                    </div> 
+                    <div class="col-xs-9"> 
+                        <input type="text" class="form-control" formControlName="style">
+                  </div> 
                   </div>
             </div>
            
