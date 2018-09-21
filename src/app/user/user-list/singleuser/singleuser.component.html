@@ -33,7 +33,7 @@
     </div>
     <div class="col-xs-3">
 
-        <!-- <form [formGroup]="formArrayExam" (ngSubmit)="onSubmit()">
+        <form [formGroup]="formArrayExam" (ngSubmit)="onSubmit()">
             
        
               <div class="radio" *ngFor="let gender of genders">
@@ -53,12 +53,12 @@
                     </button>
                   <div
                       class="form-group"
-                      *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index">
+                      *ngFor="let hobbyControl of formArrayExam.get('hobbies').controls; let i = index">
                       <input type="text" class="form-control" [formControlName]="i">
                   </div>
             </div>
-            this will wok some modification made here
-            </form> -->
+           
+            </form> 
      </div>
 </div>
 
