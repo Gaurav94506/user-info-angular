@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-user-edit',
@@ -14,6 +14,7 @@ export class UserEditComponent implements OnInit {
   id: number;
   mode: string = ''
   userForm: FormGroup;
+  genders = ['male', 'female'];
   // fieldName='name';
   // fieldDesignation='designation';
   // fieldExpertise='expertise';
@@ -44,7 +45,8 @@ export class UserEditComponent implements OnInit {
         'state': new FormControl(null),
         'pincode': new FormControl(null, [Validators.required, Validators.minLength(6),Validators.pattern('^[1-9][0-9]{5}')])
       }),
-
+      'gender': new FormControl('male'),
+      'hobbies': new FormArray([])
     });
 
 
@@ -108,6 +110,16 @@ export class UserEditComponent implements OnInit {
         }
       ));
     }
+
+  }
+
+  onAddHobby() {
+    const control = new FormGroup({
+        'hobbyname':new FormControl('test'),
+        'style':new FormControl('any style')
+    });
+    //FormControl(null);
+    (<FormArray>this.userForm.get('hobbies')).push(control);
 
   }
 

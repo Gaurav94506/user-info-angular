@@ -35,8 +35,30 @@
             
                 <span *ngIf="userForm.controls['adr'].controls['pincode'].hasError['pattern'] " class="alert alert-danger">This field is required!</span> 
             </span>
-    </div>   
+        </div>   
   </div>
+  Select Gender
+  <div class="radio" *ngFor="let gender of genders">
+    
+      <label >
+        <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
+      </label>
+    </div>
+    <div formArrayName="hobbies">
+        <h4>Your Hobbies</h4>
+        <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby </button>
+        <div class="form-group" *ngFor="let hobbyControl of userForm.get('hobbies').controls; let i = index" [formGroupName]="i">
+          <div class="col-xs-9"> 
+                <input type="text" class="form-control" formControlName="hobbyname">
+          </div> 
+          <div class="col-xs-9"> 
+              <input type="text" class="form-control" formControlName="style">
+        </div> 
+        </div>
+  </div>
+
+
+
     <span *ngIf="!userForm.valid && userForm.touched"
       class="help-block">Please enter valid data!</span><br>
     <!--<input formControlName='password' type="password" class="form-control" placeholder="Enter Password" /> -->
