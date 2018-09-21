@@ -40,9 +40,9 @@ export class SingleuserComponent implements OnInit {
     // now i have made some changes here
     // some changesi have made
 
-    // some changes made here
+    // some changes made here some
 
-
+//This functiona will delte user based on id
   }
   // deleteUser(id){
   //   this.id=id;
