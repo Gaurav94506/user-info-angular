@@ -57,14 +57,4 @@ export class UserComponent implements OnInit {
    // this.subscription.unsubscribe();
   }
 
-  
-  // userdetails(userValue){
-  //   this.user=userValue;
-  // }
-
-
-
-
-
-
 }

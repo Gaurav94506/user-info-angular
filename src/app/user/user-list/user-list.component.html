@@ -1,5 +1,18 @@
 <div class="row">
+    <!-- <form class="form-inline"  (ngSubmit)='searchUser()'>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text"  class="form-control" placeholder="Username">
+        </div> 
+      </form> -->
+      
     <div class="col-md-9">
+        <div class="col-md-5">
+            <input type="text" [(ngModel)]="searchedUser"  class="form-control" placeholder="Search user by Name">
+        </div>  
+        
       <table class="table table-bordered">
           <thead>
             <tr  >
@@ -15,7 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of userlist; let i = index">
+            <tr *ngFor="let user of userlist | userFilter:searchedUser:'name' ; let i = index">
               
                 <td #id>{{user.id}}</td>
                 <td>{{user.name}}</td>

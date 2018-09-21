@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeadreComponent implements OnInit {
 
+
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -16,4 +17,6 @@ export class HeadreComponent implements OnInit {
   onNewUser(){
     this.router.navigate(['new']);
   }
+
+ 
 }

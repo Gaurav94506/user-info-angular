@@ -5,10 +5,6 @@ import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 
-
-
-
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -19,7 +15,7 @@ export class UserListComponent implements OnInit {
   @Input() userlist:User;
   @Input() index: number;
   @Output() userDetails=new EventEmitter<User>();
-
+  searchedUser:''
 
    id:number;
   constructor(private router: Router,private route: ActivatedRoute,
@@ -40,10 +36,6 @@ export class UserListComponent implements OnInit {
    this.router.navigate(['edit',this.id], {relativeTo: this.route});
  }
 
- 
-
- 
-
   // ngOnDestroy() {
   //  // this.subscription.unsubscribe();
   // }
@@ -57,7 +49,9 @@ export class UserListComponent implements OnInit {
     console.log('user dtails is'+user)
   }
 
-
+  searchUser(){
+    console.log('serach given user')
+  }
 
   // deleteUser(value){
   //  // var target = event.target
