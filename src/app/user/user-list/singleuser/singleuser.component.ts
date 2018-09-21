@@ -35,7 +35,9 @@ export class SingleuserComponent implements OnInit {
     const control = new FormControl(null);
     (<FormArray>this.formArrayExam.get('hobbies')).push(control);
 
+
     // now i have made some changes here
+    // some changesi have made
   }
   // deleteUser(id){
   //   this.id=id;
