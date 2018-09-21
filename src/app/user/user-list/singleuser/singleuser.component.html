@@ -1,0 +1,106 @@
+<!-- <table class="table table-hover">  -->
+  <div class="row"> 
+    <div class="col-xs-9"> 
+      Selected user Details
+      <table class="table table-bordered">
+        <thead>
+          <tr  >
+              <th>ID</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Expertise</th>
+                <th>Pincode</th>
+                <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            
+              <td #id>{{suser.id}}</td>
+              <td>{{suser.name}}</td>
+              <td>{{suser.designation}}</td>
+              <td>{{suser.expertise}}</td>
+              
+              <td>{{suser.adr.pincode}}</td>
+              <td>{{suser.adr?.state}}</td>
+    <!--           
+          <td><button  (click)="editUser(singleuser.id)" class="btn btn-success">Edit</button></td>
+    
+          <td><button  (click)="deleteUser(singleuser.id)" class="btn btn-danger">Delete</button></td> -->
+        
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+
+        <!-- <form [formGroup]="formArrayExam" (ngSubmit)="onSubmit()">
+            
+       
+              <div class="radio" *ngFor="let gender of genders">
+                <label>
+                  <input
+                    type="radio"
+                    formControlName="gender"
+                    [value]="gender">{{ gender }}
+                </label>
+              </div>
+              <div formArrayName="hobbies">
+                  <h4>Your Hobbies</h4>
+                  <button
+                          class="btn btn-default"
+                          type="button"
+                          (click)="onAddHobby()">Add Hobby
+                    </button>
+                  <div
+                      class="form-group"
+                      *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index">
+                      <input type="text" class="form-control" [formControlName]="i">
+                  </div>
+            </div>
+            </form> -->
+     </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="row">
+    <div class="col-xs-12">
+      User Details are {{suser.id}} Name is {{suser.name}} Address is  {{suser.address}} Designation {{suser.designation}}
+      </div>
+</div> -->
+
+
+
+
+            
+    <!-- <table class="table table-hover">
+   
+      <tbody>
+        <tr>
+          <td #id>{{suser.id}}</td>
+          <td>{{suser.name}}</td>
+          <td>{{suser.designation}}</td>
+          <td>{{suser.expertise}}</td>
+          
+          <td>{{suser.address}}</td>
+          
+      
+   
+      
+      <td><button  (click)="editUser()" class="btn btn-success">Edit</button></td>
+ 
+      <td><button  (click)="deleteUser()" class="btn btn-danger">Delete</button></td>
+    </tr>
+    </tbody>
+    </table> -->
+   <!--  <button  (click)="editUser()" class="btn btn-success">Edit</button>
+ 
+    <button  (click)="deleteUser()" class="btn btn-danger">Delete</button>
+ </div> -->

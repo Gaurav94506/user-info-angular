@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-9">
+    User List
+    <app-user-list [userlist]="users" [index]="i" (userDetails)="user=$event" ></app-user-list> 
+    <!-- This is similar to  <app-user-list [userlist]="users" [index]="i" (userDetails)="userdetails($event)" ></app-user-list> 
+           but in this approach we have declare function named userdetails in component file and there we have to bind data  -->
+  </div>
+  <div class="col-sm-3">
+      <app-singleuser [suser]="user" *ngIf="user"></app-singleuser>
+      <!-- <ng-template #infotext>  </ng-template>  </div>  -->
+</div>

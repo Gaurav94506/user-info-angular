@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-9">
+      <table class="table table-bordered">
+          <thead>
+            <tr  >
+                <th>ID</th>
+                  <th>Name</th>
+                  <th>Designation</th>
+                  <th>Expertise</th>
+                  <th>Pincode</th>
+                  <th>State</th>
+                  <th>Details</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userlist; let i = index">
+              
+                <td #id>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.designation}}</td>
+                <td>{{user.expertise}}</td>
+                
+                <td>{{user.adr.pincode}}</td>
+                <td>{{user.adr?.state}}</td>
+                
+            <td><button (click)="displayDetails(user)"  class="btn btn-success">User Details </button></td>
+            <td><button  (click)="editUser(user.id)" class="btn btn-success">Edit</button></td>
+      
+            <td><button  (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
+          
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="col-md-3">
+        <app-singleuser [suser]="suser" *ngIf="singleuserDisplay"></app-singleuser>
+      </div>  -->
+    </div>
