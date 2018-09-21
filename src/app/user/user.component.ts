@@ -44,7 +44,7 @@ export class UserComponent implements OnInit {
       //      this.user.expertise=params['expertise'];
       //     console.log("control comes here"+params['name'])
       //   }
-      // )
+      // ) commented
 
   }
   
