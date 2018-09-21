@@ -39,7 +39,7 @@ export class SingleuserComponent implements OnInit {
   //   this.id=id;
 
 
-    
+    //
   //   this.router.navigate(['delete',this.id], {relativeTo: this.route});
     
   // }
