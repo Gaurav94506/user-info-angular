@@ -7,19 +7,28 @@ import {Injectable, PipeTransform, Pipe } from "@angular/core";
 
 @Injectable()
 export class UserFilter implements PipeTransform{
-    transform(items: any[], searchText: string): any[] {
-        if(!items) return [];
-        if(!searchText) return items;
-                searchText = searchText.toLowerCase();
-         return items.filter( it => {
-              return it.toLowerCase().includes(searchText);
-        });
-       }
 
-    //  transform(items: any[], field: string, value: string): any[] {
-    //      if (!items) return items;
-    //      return items.filter(it => it[field] == value);
+    public transform(value, keys: string, term: string) {
+
+        if (!term) return value;
+        return (value || []).filter((item) => keys.split(',').
+                some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
+    
+      }
+
+    // transform(items: any[], searchText: string): any[] {
+    //     if(!items) return [];
+    //     if(!searchText) return items;
+    //             searchText = searchText.toLowerCase();
+    //      return items.filter( it => {
+    //           return it.toLowerCase().includes(searchText);
+    //     });
     //    }
+
+    //   transform(items: any[], field: string, value: string): any[] {
+    //       if (!items) return items;
+    //       return items.filter(it => it[field] == value);
+    //     }
 
 
 

@@ -30,7 +30,7 @@
           <tbody>
             <!-- <tr *ngFor="let user of userlist !  ; let i = index"> -->
                 <!-- <tr *ngFor="let user of userlist | userFilter:  'name' :searchedUser "> -->
-            <tr *ngFor="let user of userlist | userFilter: searchedUser ">
+            <tr *ngFor="let user of userlist | userFilter:'name': searchedUser ">
                 <td #id>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.designation}}</td>
