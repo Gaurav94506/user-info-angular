@@ -1,6 +1,5 @@
-import {Injectable, PipeTransform, Pipe } from "@angular/core";
-
-
+import { Pipe, PipeTransform } from '@angular/core';
+import {Injectable} from '@angular/core'
 @Pipe({
     name:'userFilter'
 })
@@ -8,45 +7,46 @@ import {Injectable, PipeTransform, Pipe } from "@angular/core";
 @Injectable()
 export class UserFilter implements PipeTransform{
 
-    public transform(value, keys: string, term: string) {
+       //------------------------------First Approach -----------------------------------------------------------------------------------
+    //  public transform(value, keys?: any,designation?: any,
+    //                   expertise?: any,pincode?: any,
+    //                           state?: any) {
+            
+    //               if (keys == undefined && designation == undefined && expertise == undefined && pincode == undefined && state == undefined) {
+    //                   return value;
+    //               }
+    //              // debugger;
+    //          return value.filter(function(item){
+               
+    //            return ( 
+    //               (keys == "" || keys == undefined ? true : item.name.includes(keys) ? true : false) &&
+    //              (designation == "" || designation == undefined ? true : item.designation.includes(designation)? true : false)) &&
+    //              (expertise == "" || expertise == undefined ? true : item.expertise.includes(expertise)? true : false) &&
+    //              (pincode == "" || pincode == undefined ? true : String(item.adr.pincode).includes(pincode)? true : false)  
+                 
+    //           &&             
+    //              (state == "" || state == undefined ? true : item.adr.state.includes(state)? true : false)  
+                
+                
+    //             })
+   
+    //              } 
 
-        if (!term) return value;
-        return (value || []).filter((item) => keys.split(',').
-                some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
+///.................................................................................................--------------------
+// ---------------------------------------second approach---------------------------------------------------------------
+     public transform(value, keys: string, term: string) {
+        // debugger;
+         if (!term) return value;
     
-      }
+         if(keys==='pincode' || keys==='state'){
+             return (value || []).filter((item) => keys.split(',').
+             some(key => item.adr.hasOwnProperty(key) && new RegExp(term, 'gi').test(item.adr[key])));
+         }
+         return (value || []).filter((item) => keys.split(',').
+                 some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
 
-    // transform(items: any[], searchText: string): any[] {
-    //     if(!items) return [];
-    //     if(!searchText) return items;
-    //             searchText = searchText.toLowerCase();
-    //      return items.filter( it => {
-    //           return it.toLowerCase().includes(searchText);
-    //     });
-    //    }
-
-    //   transform(items: any[], field: string, value: string): any[] {
-    //       if (!items) return items;
-    //       return items.filter(it => it[field] == value);
-    //     }
+     }
 
 
 
-    //  transform(value:any,filterString:string,propName:string):any{
-    //      if(value.length===0){
-    //           return 0;
-    //      }
-    //       const resultArray=[];
-    //      for(const item of value){
-            
-    //          if(item[propName]===filterString){
-    //              resultArray.push(item);
-    //          }
-
-
-
-            
-    //     }
-    //      return resultArray;
-    //  }
 }

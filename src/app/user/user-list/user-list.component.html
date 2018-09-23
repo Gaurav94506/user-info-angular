@@ -1,17 +1,6 @@
 <div class="row">
-    <!-- <form class="form-inline"  (ngSubmit)='searchUser()'>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">@</span>
-          </div>
-          <input type="text"  class="form-control" placeholder="Username">
-        </div> 
-      </form> -->
       
     <div class="col-md-9">
-        <div class="col-md-5">
-            <input type="text" #txtsearcheduser [(ngModel)]="searchedUser"  class="form-control" placeholder="Search user by Name">
-        </div>  
         
       <table class="table table-bordered">
           <thead>
@@ -26,11 +15,32 @@
                   <th>Edit</th>
                   <th>Delete</th>
             </tr>
+            <tr  >
+              <td></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByName"  class="form-control" placeholder="Search user by Name"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserBydesi"  class="form-control" placeholder="Designation"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByExpertise"  class="form-control" placeholder="Search user by Expertise"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByPincode"  class="form-control" placeholder="Search user by Pincode"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByState"  class="form-control" placeholder="Search user by State"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+
+            </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let user of userlist !  ; let i = index"> -->
-                <!-- <tr *ngFor="let user of userlist | userFilter:  'name' :searchedUser "> -->
-            <tr *ngFor="let user of userlist | userFilter:'name': searchedUser ">
+       
+          <!-------------------------------First approach See commented part in UserFilter.pipe.ts--------------------------------------------------->
+          <!-- <tr *ngFor="let user of userlist | userFilter: searchedUserByName: searchedUserBydesi
+                                                          :searchedUserByExpertise:searchedUserByPincode
+                                                          :searchedUserByState">   -->
+
+            <!---------------------------Second Approach---------------------------------------------------->
+             <tr *ngFor="let user of userlist | userFilter:  'name' :searchedUserByName 
+                                              | userFilter:  'designation' :searchedUserBydesi
+                                              | userFilter:  'expertise' :searchedUserByExpertise
+                                              | userFilter:  'pincode' :searchedUserByPincode
+                                              | userFilter:  'state' :searchedUserByState"> 
                 <td #id>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.designation}}</td>
@@ -41,14 +51,10 @@
                 
             <td><button (click)="displayDetails(user)"  class="btn btn-success">User Details </button></td>
             <td><button  (click)="editUser(user.id)" class="btn btn-success">Edit</button></td>
-      
-            <td><button  (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
+            <td><button  (click)="deleteUser(user)" class="btn btn-danger">Delete</button></td>
+            <!-- <td><button  (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td> -->
           
           </tbody>
         </table>
       </div>
-
-      <!-- <div class="col-md-3">
-        <app-singleuser [suser]="suser" *ngIf="singleuserDisplay"></app-singleuser>
-      </div>  -->
     </div>

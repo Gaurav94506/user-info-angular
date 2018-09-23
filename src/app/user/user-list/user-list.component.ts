@@ -12,10 +12,16 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class UserListComponent implements OnInit {
 
-  @Input() userlist:User;
-  @Input() index: number;
+ // @Input() userlist:User;
+ // @Input() index: number;
+  userlist:User;
   @Output() userDetails=new EventEmitter<User>();
-  searchedUser:''
+  searchedUserByName:'';
+  searchedUserBydesi:'';
+  searchedUserByExpertise:'';
+  searchedUserByPincode:'';
+  searchedUserByState:''
+  //extra: string[] = ["ab","cd","ef","gh"];
 
    id:number;
   constructor(private router: Router,private route: ActivatedRoute,
@@ -23,14 +29,31 @@ export class UserListComponent implements OnInit {
               {console.log(this.userlist) }
 
  ngOnInit() {
-   
+   //debugger;
+  this.refreshUserList();
+ // console.log(this.extra);
+  //this.extra.splice(0,1);
+ // console.log(this.extra);
  }
- deleteUser(id){
-   this.id=id;
 
-   this.router.navigate(['delete',this.id], {relativeTo: this.route});
-   //console.log('deleted button value is '+this.id);
- }
+ deleteUser(user){
+  
+  this.userService.deleteUser(user.id)
+  .subscribe(
+      success=>
+      {
+          // var index = this.userlist.indexOf(user,0)
+          // if (index > -1)
+          // {
+          //     this.userlist.splice(index, 1);
+              this.refreshUserList();
+        //  }
+      }
+  )
+
+      //console.log('deleted button value is '+this.id);
+    }
+
  editUser(id){
    this.id=id;
    this.router.navigate(['edit',this.id], {relativeTo: this.route});
@@ -52,7 +75,14 @@ export class UserListComponent implements OnInit {
   searchUser(){
     console.log('serach given user')
   }
+  refreshUserList(){
+    this.userService.getproducts().subscribe((
 
+      responsedata=>
+      this.userlist=responsedata
+      
+    ));
+  };
   // deleteUser(value){
   //  // var target = event.target
   //  // var idAttr = target.attributes.id;

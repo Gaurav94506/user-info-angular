@@ -13,7 +13,7 @@ import { User } from '../model/user.model';
 })
 export class UserComponent implements OnInit {
 
-  users:User;
+  //users:User;
   user:User;
   //name:string;
  // id:number;
@@ -26,12 +26,12 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.userService.getproducts().subscribe((
+      // this.userService.getproducts().subscribe((
 
-        responsedata=>
-        this.users=responsedata
+      //   responsedata=>
+      //   this.users=responsedata
         
-      ));
+      // ));
    
      // const userobject=Observable.this.userService.getproducts()
       // this.route.params.subscribe(
@@ -47,14 +47,8 @@ export class UserComponent implements OnInit {
       // ) commented here
 
   }
-  
-  onNewUser(){
-    this.router.navigate(['new']);
-  }
- 
-
-  ngOnDestroy() {
-   // this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //  // this.subscription.unsubscribe();
+  // }
 
 }
