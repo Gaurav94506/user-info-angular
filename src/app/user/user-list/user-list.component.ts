@@ -21,7 +21,9 @@ export class UserListComponent implements OnInit {
   searchedUserByExpertise:'';
   searchedUserByPincode:'';
   searchedUserByState:''
+
   //extra: string[] = ["ab","cd","ef","gh"];
+
 
    id:number;
   constructor(private router: Router,private route: ActivatedRoute,

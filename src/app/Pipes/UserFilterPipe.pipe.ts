@@ -7,6 +7,7 @@ import {Injectable} from '@angular/core'
 @Injectable()
 export class UserFilter implements PipeTransform{
 
+
        //------------------------------First Approach -----------------------------------------------------------------------------------
     //  public transform(value, keys?: any,designation?: any,
     //                   expertise?: any,pincode?: any,
@@ -46,6 +47,7 @@ export class UserFilter implements PipeTransform{
                  some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
 
      }
+
 
 
 
