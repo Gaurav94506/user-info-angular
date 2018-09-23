@@ -9,9 +9,9 @@
       </form> -->
       
     <div class="col-md-9">
-        <div class="col-md-5">
+        <!-- <div class="col-md-5">
             <input type="text" #txtsearcheduser [(ngModel)]="searchedUser"  class="form-control" placeholder="Search user by Name">
-        </div>  
+        </div>   -->
         
       <table class="table table-bordered">
           <thead>
@@ -26,11 +26,27 @@
                   <th>Edit</th>
                   <th>Delete</th>
             </tr>
+            <tr  >
+              <td></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByName"  class="form-control" placeholder="Search user by Name"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserBydesi"  class="form-control" placeholder="Designation"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByExpertise"  class="form-control" placeholder="Search user by Expertise"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByPincode"  class="form-control" placeholder="Search user by Pincode"></td>
+               <td><input type="text"  [(ngModel)]="searchedUserByState"  class="form-control" placeholder="Search user by State"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+
+            </tr>
           </thead>
           <tbody>
             <!-- <tr *ngFor="let user of userlist !  ; let i = index"> -->
                 <!-- <tr *ngFor="let user of userlist | userFilter:  'name' :searchedUser "> -->
-            <tr *ngFor="let user of userlist | userFilter:'name': searchedUser ">
+            <tr *ngFor="let user of userlist | userFilter:'name': searchedUserByName
+                                             | userFilter:'designation': searchedUserBydesi
+                                             | userFilter:'expertise': searchedUserByExpertise
+                                             | userFilter:'pincode': searchedUserByPincode
+                                             | userFilter:'state': searchedUserByState ">
                 <td #id>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.designation}}</td>

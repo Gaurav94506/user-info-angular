@@ -15,7 +15,11 @@ export class UserListComponent implements OnInit {
   @Input() userlist:User;
   @Input() index: number;
   @Output() userDetails=new EventEmitter<User>();
-  searchedUser:''
+  searchedUserByName:'';
+  searchedUserBydesi:'';
+  searchedUserByExpertise:'';
+  searchedUserByPincode:'';
+  searchedUserByState:''
 
    id:number;
   constructor(private router: Router,private route: ActivatedRoute,
