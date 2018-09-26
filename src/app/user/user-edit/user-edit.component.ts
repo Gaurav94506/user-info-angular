@@ -29,9 +29,7 @@ export class UserEditComponent implements OnInit {
     this.mode = this.activateRou.snapshot.params['mode'];
     //console.log(this.id+'mode is'+this.mode)
 
-    if (this.mode === 'delete') {
-      this.deleteUser(this.id)
-    } else if (this.mode === 'edit') {
+     if (this.mode === 'edit') {
       this.getUserByID(this.id);
     }
 
@@ -52,18 +50,18 @@ export class UserEditComponent implements OnInit {
 
 
   }
-  deleteUser(id) {
-    this.userService.deleteUser(id).subscribe(
-      (
-        responseData =>{
-          console.log(responseData);
-          this.router.navigate(['users']);
-        } 
-        )
-    );
+  // deleteUser(id) {
+  //   this.userService.deleteUser(id).subscribe(
+  //     (
+  //       responseData =>{
+  //         console.log(responseData);
+  //         this.router.navigate(['users']);
+  //       } 
+  //       )
+  //   );
     
 
-  }
+  // }
   //getuser(id)
   getUserByID(id) {
     // console.log('control comes her getUserByID'+id)

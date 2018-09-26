@@ -5,6 +5,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserComponent } from './user/user.component';
 import { AppComponent } from './app.component';
 import { HeadreComponent } from './header/header.component';
+import { SingleuserComponent } from './user/user-list/singleuser/singleuser.component';
 
 
 const appRoutes: Routes = [
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'new', component: UserEditComponent },
   { path: 'users', component: UserComponent, 
           children: [
+              //  { path: 'userInfo', component: SingleuserComponent },
                      // { path: 'new', component: UserEditComponent },
                     //  { path: 'edit/:id', component: UserEditComponent  },
                       

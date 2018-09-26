@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-          <a routerLink="/users" class="navbar-brand">User Info</a>
+          <a routerLink="/users" routerLinkActive="active" class="navbar-brand">User Info</a>
       </li>
       <li class="nav-item">
-          <a routerLink="/new" class="navbar-brand">Add User</a>
+          <a routerLink="/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="navbar-brand">Add User</a>
       </li>
     </ul>
    

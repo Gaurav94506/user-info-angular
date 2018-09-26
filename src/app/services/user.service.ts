@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http , Response,Headers } from '@angular/http';
 import { IProduct } from '../product'
 import 'rxjs/add/operator/map';
@@ -8,21 +8,23 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class UserService {
 
-  userlistChanged = new Subject<User[]>();
+  userSelected = new EventEmitter<User[]>();
    //private _producturl='products.json';
    constructor(private _http: Http){}
    
    getproducts()
    {
    //  const headers=new Headers({'content-type':'application/json;charset=UTF-8','Access-Control-Allow-Origin':'GET, POST, DELETE, PUT'});
-        return  this._http.get('http://localhost:9013/employees/').map(function(res){
+        return  this._http.get('http://localhost:9013/employees/')
+            .map(function(res){
               return <User> res.json();
         });
  
     }
  
   deleteUser(id){
-
+    //console.log('deleted user is '+id)
+    console.log(this._http.delete('http://localhost:9013/employees/'+id);
     return this._http.delete('http://localhost:9013/employees/'+id);
   }
   getuser(id){

@@ -1,17 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { User } from '../../../model/user.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-singleuser',
   templateUrl: './singleuser.component.html',
   styleUrls: ['./singleuser.component.css']
 })
-export class SingleuserComponent implements OnInit {
-
-   @Input() suser:User;
+export class SingleuserComponent implements OnInit, OnDestroy {
+  suser:User;
+  subscription:Subscription;
+  // @Input() suser:User;
  //  @Input() index: number;
   // formArrayExam:FormGroup
   constructor(private router: Router,
@@ -19,7 +21,13 @@ export class SingleuserComponent implements OnInit {
   
  // genders = ['male', 'female'];
   ngOnInit() {
+   this.subscription= this.userService.userSelected.subscribe(
 
+      (selectedUser:User)=>{
+        this.suser=selectedUser;
+      }
+      )
+      
     // this.formArrayExam = new FormGroup({
     //   // 'userData': new FormGroup({
     //   //   'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
@@ -29,9 +37,10 @@ export class SingleuserComponent implements OnInit {
     //   'hobbies': new FormArray([])
     // });
 
-
+ }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
-
   // onAddHobby() {
   //   const control = new FormGroup({
   //       'name':new FormControl('test'),
