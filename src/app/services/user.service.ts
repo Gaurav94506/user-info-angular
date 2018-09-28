@@ -8,7 +8,8 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class UserService {
 
-  userSelected = new EventEmitter<User[]>();
+  //userSelected = new EventEmitter<User>();
+  userSelected = new Subject<User>();
    //private _producturl='products.json';
    constructor(private _http: Http){}
    

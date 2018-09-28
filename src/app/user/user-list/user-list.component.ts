@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
    id:number;
   constructor(private router: Router,private route: ActivatedRoute,
               private userService:UserService) 
-              {console.log(this.userlist) }
+              { }
 
  ngOnInit() {
    //debugger;
@@ -46,7 +46,7 @@ export class UserListComponent implements OnInit {
 
  deleteUser(user){
   //console.log(user.id)
-  this.userService.deleteUser('in user-list'+user.id)
+  this.userService.deleteUser(user.id)
   .subscribe(
       success=>
       {
