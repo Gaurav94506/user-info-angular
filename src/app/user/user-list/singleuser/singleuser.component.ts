@@ -17,7 +17,7 @@ export class SingleuserComponent implements OnInit, OnDestroy {
  //  @Input() index: number;
   // formArrayExam:FormGroup
   constructor(private router: Router,
-    private route: ActivatedRoute,private userService:UserService) {console.log(this.suser) }
+    private route: ActivatedRoute,private userService:UserService) {}
   
  // genders = ['male', 'female'];
   ngOnInit() {

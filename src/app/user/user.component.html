@@ -2,14 +2,15 @@
   <div class="col-sm-9">
     User List
     <!-- <app-user-list [userlist]="users" [index]="i" (userDetails)="user=$event" ></app-user-list>  -->
-    <!-- <app-user-list  (userDetails)="user=$event" ></app-user-list>  -->
-    <app-user-list   ></app-user-list>
     <!-- This is similar to  <app-user-list [userlist]="users" [index]="i" (userDetails)="userdetails($event)" ></app-user-list> 
            but in this approach we have declare function named userdetails in component file and there we have to bind data  -->
+   
+    <app-user-list   ></app-user-list>
+  
   </div>
   <div class="col-sm-3">
-      <app-singleuser></app-singleuser>
       <!-- <app-singleuser [suser]="user" *ngIf="user"></app-singleuser> -->
+      <app-singleuser></app-singleuser>
       <!-- <router-outlet></router-outlet> -->
       <!-- <ng-template #infotext>  </ng-template>  </div>  -->
 </div>

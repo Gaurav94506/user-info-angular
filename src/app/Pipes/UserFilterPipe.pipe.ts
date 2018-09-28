@@ -40,6 +40,7 @@ export class UserFilter implements PipeTransform{
          if (!term) return value;
     
          if(keys==='pincode' || keys==='state'){
+           
              return (value || []).filter((item) => keys.split(',').
              some(key => item.adr.hasOwnProperty(key) && new RegExp(term, 'gi').test(item.adr[key])));
          }

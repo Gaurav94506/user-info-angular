@@ -13,8 +13,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class UserListComponent implements OnInit {
 
- // @Input() userlist:User;
- // @Input() index: number;
+
+//  @Input() userlist:User;
+//   @Input() index: number;
+//   @Output() userDetails=new EventEmitter<User>();
+//   searchedUser:''
+
+
   userlist:User;
    userDetails=new Subject<User>();
   searchedUserByName:'';
